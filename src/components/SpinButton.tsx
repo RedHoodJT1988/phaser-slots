@@ -1,15 +1,13 @@
 import React from 'react';
 
-export const SpinButton: React.FC = () => {
-  const handleSpin = () => {
-    // Dispatch the custom event to start spinning
-    const event = new Event('spin');
-    window.dispatchEvent(event);
-  };
+interface SpinButtonProps {
+  onSpin: () => void;
+}
 
+export const SpinButton: React.FC<SpinButtonProps> = ({ onSpin }) => {
   return (
     <button
-      onClick={handleSpin}
+      onClick={onSpin}
       style={{
         padding: '10px 20px',
         fontSize: '20px',
